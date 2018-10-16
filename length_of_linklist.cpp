@@ -10,7 +10,7 @@ void insert(int val);
 void print();
 void deleteNode(int val);
 void searchNode(int val);
-
+void length();
 struct Node* start = NULL;
 int main(){
 	searchNode(10);
@@ -18,10 +18,12 @@ int main(){
 	insert(10);
 	insert(15);
 	insert(20);
+	length();
 	print();
 	deleteNode(15);
 	cout << "------" << endl;
 	print();
+	length();
 	searchNode(10);
 	
 }
@@ -79,6 +81,19 @@ void searchNode(int val){
 			}
 		}	
 	}
+}
+
+void length(){
+	struct Node* curr = start;
+	int count = 0;
+	while(curr->next != NULL){
+		count++;
+		curr = curr->next;
+		if(curr->next == NULL){
+			count++;
+		}
+	}
+	cout << "Length is : " << count << endl;
 }
 
 void print(){
